@@ -1,5 +1,5 @@
 import streamlit as st
-from animals import animals
+from animals import animals, animal_images
 from ai import simulate_battle
 import os
 
@@ -27,16 +27,20 @@ col1, col2 = st.columns(2, gap="large")
 
 with col1:
     animal1 = st.selectbox("Select Animal 1:", animals)
-    st.markdown(
-        '<img src="https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/1600/900/75/dam/wdpro-assets/parks-and-tickets/attractions/animal-kingdom/disney-animals/disney-animals-asian-sumatran-tigers/disney-animals-asian-sumatran-tigers-00.jpg?1658996208764" style="width: 100%; height: 250px; object-fit: cover; border: 3px solid #ff4b4b; border-radius: 8px;"/>',
-        unsafe_allow_html=True
-    )
+    img1 = animal_images.get(animal1)
+    if img1:
+        st.markdown(
+            f'<img src="{img1}" style="width: 100%; height: 250px; object-fit: cover; border: 3px solid #ff4b4b; border-radius: 8px;"/>',
+            unsafe_allow_html=True
+        )
 with col2:
     animal2 = st.selectbox("Select Animal 2:", animals)
-    st.markdown(
-        '<img src="https://i.natgeofe.com/k/3373927f-fa15-4c55-bf49-73f44073b768/burmese-python-tree_4x3.jpg" style="width: 100%; height: 250px; object-fit: cover; border: 3px solid #ff4b4b; border-radius: 8px;"/>',
-        unsafe_allow_html=True
-    )
+    img2 = animal_images.get(animal2)
+    if img2:
+        st.markdown(
+            f'<img src="{img2}" style="width: 100%; height: 250px; object-fit: cover; border: 3px solid #ff4b4b; border-radius: 8px;"/>',
+            unsafe_allow_html=True
+        )
 
 st.markdown("<br>", unsafe_allow_html=True)
 
