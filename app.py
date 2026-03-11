@@ -1,32 +1,25 @@
 import streamlit as st
-from openai import OpenAI
 from animals import animals
+from ai import simulate_battle
 import os
-
-
-client = OpenAI (
-    base_url="https://api.groq.com/openai/v1",
-    api_key=st.secrets["GROQ_API_KEY"]
-)
 
 BASE_DIR = os.path.dirname(__file__)
 logo_path = os.path.join(BASE_DIR, "beastgpt_logo.png")
 
 # BEASTGPT HEADER
-col1, col2 = st.columns([1, 4])
+col1, col2 = st.columns([1, 6])
 
 with col1:
-    st.image(logo_path, width=100)
-
+    st.image(logo_path, width=75)
 with col2:
-    st.title("BeastGPT")
-    st.markdown("<div style='color: gray;'>AI-Powered Animal Battle Simulator</div>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: #cd4055; margin: 0; padding: 0'>BeastGPT</h1>", unsafe_allow_html=True)
+    st.markdown("<div style='margin: 0; padding: 0'>AI-Powered Animal Battle Simulator</div>", unsafe_allow_html=True)
 
-st.divider()
+st.markdown("<hr style='margin: 0; padding: 0; margin-top: 1em; margin-bottom: 2em'/>", unsafe_allow_html=True)
 
 # DROPDOWN MENUS
 st.markdown(
-    "<h3 style='text-align: center; margin-bottom: 1em;'>CHOOSE YOUR FIGHTERS!</h3>",
+    "<h3 style='color: #cd4055; text-align: center; margin-bottom: 1em;'>CHOOSE YOUR FIGHTERS!</h3>",
     unsafe_allow_html=True
 )
 
@@ -47,68 +40,11 @@ with col2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-
-# ari lang modify ang prompt if ganahan mo naay usbon   
-
-system_prompt = """
-You are BeastGPT, an educational animal battle simulator for kids (ages 6–12).
-
-Rules:
-- Use simple words.
-- Keep explanations short.
-- Use ⭐ from 1 to 5 to rate traits.
-- Output must be a MARKDOWN TABLE.
-
-Output format:
-
-WHO WINS?
-
-<WINNER NAME IN ALL CAPS>
-
-<One short sentence explaining why.>
-
-BATTLE STATS
-
-| Trait | Animal 1 | Animal 2 |
-|------|------|------|
-| Size | ⭐⭐⭐ | ⭐⭐⭐ |
-| Strength | ⭐⭐⭐ | ⭐⭐⭐ |
-| Speed | ⭐⭐⭐ | ⭐⭐⭐ |
-| Bite Force | ⭐⭐⭐ | ⭐⭐⭐ |
-| Habitat | short word | short word |
-
-IMPORTANT:
-Each trait MUST be on a new row in the table.
-Do NOT place everything on one line.
-"""
-if st.button("⚔️ FIGHT!", use_container_width=True):
-
+if st.button("⚔️ FIGHT!", help="Start battle!", use_container_width=True, type="primary"):
     with st.spinner("Simulating battle..."):
-
-        user_prompt = f"""
-        Simulate a battle between {animal1} and {animal2}.
-
-        Compare them using:
-        - sizze
-        - strength
-        - speed
-        - bite force
-        - habitat
-        """
-
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            temperature=0.7
-        )
-
-        result = response.choices[0].message.content
-
-        st.subheader("Battle Result")
-        st.markdown(result)
+       result = simulate_battle(animal1, animal2)
+       st.subheader("Battle Result")
+       st.markdown(result)
 
 st.button(
     "🎲 RANDOM", 
