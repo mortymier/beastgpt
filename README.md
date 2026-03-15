@@ -33,8 +33,9 @@ The system **does NOT promote animal cruelty or violence**.
 
 * **Python**
 * **Streamlit**
-* **Groq API (OpenAI-compatible)**
+* **Groq API**
 * **Llama 3.1 8B Instant Model**
+* **Llama 3.3 70b Versatile**
 
 ---
 
@@ -54,7 +55,7 @@ Install the dependencies:
 
 ```bash
 pip install streamlit
-pip install openai
+pip install groq
 ```
 
 or
@@ -118,23 +119,21 @@ Example `.gitignore`:
 
 # AI Model Configuration
 
-BeastGPT connects to Groq using the **OpenAI-compatible client**.
-
-Example configuration:
+BeastGPT connects to Groq using this configuration:
 
 ```python
-from openai import OpenAI
+from groq import Groq
 
-client = OpenAI(
-    base_url="https://api.groq.com/openai/v1",
+client = Groq(
     api_key=st.secrets["GROQ_API_KEY"]
 )
 ```
 
-Model used:
+Models used:
 
 ```
 llama-3.1-8b-instant
+llama-3.3-70b-versatile
 ```
 
 ---
