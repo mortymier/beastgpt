@@ -32,7 +32,7 @@ WHO WINS?
 
 <Short story of how the battle occurred>
 
-<Explanation of why the winner wins>
+<Explanation of why the winner wins based on the compared traits. Be specific: reference stats from table, highlight strengths and weaknesses, and explain how the winner’s abilities, behavior, or unique features led to victory.>
 
 BATTLE STATS
 |Trait            |ANIMAL 1 NAME IN CAPS                     |ANIMAL 2 NAME IN CAPS
