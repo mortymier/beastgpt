@@ -167,11 +167,11 @@ if fight_btn:
     arena.empty()
  
     battle_cries = [
-        f"😤 {animal1} SHARPENS ITS CLAWS...",
+        f"😤 {animal1} STANDS ITS GROUND...",
         f"💨 {animal2} CHARGES FORWARD!",
         "⚡ THE GROUND TREMBLES...",
         "🔥 CALCULATING WHO SURVIVES...",
-        "🧠 AI ANALYZING BEAST STATS...",
+        "🧠 ANALYZING BEAST STATS...",
         "💥 EPIC COLLISION INCOMING!",
     ]
     for cry in battle_cries:
@@ -183,7 +183,7 @@ if fight_btn:
         time.sleep(1)
     arena.empty()
  
-    with st.spinner("⚡ THE AI ORACLE DECIDES THE VICTOR..."):
+    with st.spinner("💭 BEASTGPT IS DECIDING THE VICTOR..."):
         result = simulate_battle(animal1, animal2)
  
     st.markdown("<div class='flash-overlay'></div>", unsafe_allow_html=True)
