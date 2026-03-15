@@ -4,7 +4,7 @@
 
 BeastGPT is an educational AI chatbot that compares two animals and simulates a **friendly battle outcome** based on their real-life characteristics.
 
-The chatbot analyzes animal **size, strength, speed, bite force, and habitat**, then determines which animal would most likely win in a hypothetical scenario.
+The chatbot analyzes animal traits such as **size, strength, speed, and behavior**, then determines which animal would most likely win in a hypothetical scenario.
 
 This project is designed for **young learners (ages 6–12)** to make learning about wildlife fun and interactive.
 
