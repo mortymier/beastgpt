@@ -39,6 +39,7 @@ BATTLE STATS
 |-----------------|------------------------------------------|-------------------------
 |Weapons          |<attacks/weapons>                         |<attacks/weapons>  
 |Attack Style     |<attack style>                            |<attack style>
+|Defense          |<defensive trait/s>                       |<defensive trait/s>   
 |Behavior         |<description of behavior>                 |<description of behavior>
 |Habitat          |<natural habitats>                        |<natural habitats>
 |Size             |<weight (lbs and kg)/ length (ft and m)>  |<weight (lbs and kg)/ length (ft and m)>

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bangers&family=Nunito:wght@400;700;900&display=swap');
+
+:root 
+{
+    --blood:  #cd4055;
+    --gold:   #ffd700;
+    --ember:  #ff6b35;
+    --dark:   #0d0d0d;
+    --mid:    #1a1a2e;
+    --light:  #e8e8e8;
+    --teal:   #4ecdc4;
+}
+ 
+.stApp 
+{
+    background: radial-gradient(ellipse at top, #1a0a0a 0%, #0d0d0d 60%);
+    background-attachment: fixed;
+}
+ 
+.stApp::before 
+{
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,215,0,.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 10%, rgba(205,64,85,.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 70%, rgba(78,205,196,.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,107,53,.2) 0%, transparent 100%);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px;
+    animation: drift 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+ 
+@keyframes drift 
+{
+    0%{ background-position: 0 0, 0 0, 0 0, 0 0; }
+    100%{ background-position: 200px 200px, -300px 300px, 250px -250px, -180px 180px; }
+}
+ 
+h1,h2,h3{font-family:'Bebas Neue',sans-serif !important;letter-spacing:2px;}
+body,p,span,div{font-family:'Nunito',sans-serif;}
+ 
+.fighter-name{font-family:'Bebas Neue',cursive;font-size:2rem;color:var(--gold);text-align:center;letter-spacing:3px;margin-top:.5rem;text-shadow:0 0 20px rgba(255,215,0,.6);}
+.vs-badge{font-family:'Bangers',cursive;font-size:5rem;color:var(--blood);text-align:center;line-height:1;text-shadow:4px 4px 0 #000,0 0 40px rgba(205,64,85,.8)}
+ 
+.beast-frame{position:relative;border-radius:12px;overflow:hidden;border:3px solid var(--blood);box-shadow:0 0 30px rgba(205,64,85,.5),inset 0 0 30px rgba(0,0,0,.4);transition:transform .3s,box-shadow .3s;}
+.beast-frame:hover{transform:scale(1.03) rotate(-1deg);box-shadow:0 0 60px rgba(205,64,85,.9);}
+ 
+.stButton>button[kind="primary"]{background:linear-gradient(135deg,#cd4055,#8b0000) !important;color:var(--gold) !important;font-family:'Bebas Neue',sans-serif !important;font-size:1.8rem !important;letter-spacing:4px !important;border:2px solid var(--gold) !important;border-radius:8px !important;padding:.6rem 2rem !important;box-shadow:0 0 30px rgba(205,64,85,.6) !important;transition:all .25s !important;animation:shimmer-btn 3s ease-in-out infinite;}
+.stButton>button[kind="primary"]:hover{transform:scale(1.07) !important;box-shadow:0 0 60px rgba(255,215,0,.7) !important;}
+@keyframes shimmer-btn{0%,100%{box-shadow:0 0 30px rgba(205,64,85,.6);}50%{box-shadow:0 0 50px rgba(255,215,0,.5);}}
+ 
+.divider{height:2px;background:linear-gradient(to right,transparent,var(--blood),var(--gold),var(--blood),transparent);margin:1.5rem 0;border:none;}
+.section-head{font-family:'Bebas Neue',cursive;font-size:2rem;letter-spacing:3px;padding-bottom:.3rem;border-bottom:2px solid;margin-bottom:1rem;}
+.story-card{background:linear-gradient(135deg,rgba(26,10,10,.95),rgba(13,13,13,.95));border:1px solid rgba(205,64,85,.5);border-radius:12px;padding:1.8rem 2rem;line-height:1.9;font-size:1.08rem;color:var(--light);box-shadow:0 0 40px rgba(205,64,85,.15);animation:fadeSlideUp .6s ease-out both;}
+ 
+.winner-banner{font-family:'Bangers',cursive;font-size:3.5rem;text-align:center;color:var(--gold);text-shadow:3px 3px 0 #000,0 0 60px rgba(255,215,0,.9);animation:winnerPop .7s cubic-bezier(.175,.885,.32,1.275) both;letter-spacing:4px;}
+@keyframes winnerPop{0%{transform:scale(0) rotate(-10deg);opacity:0;}100%{transform:scale(1) rotate(0deg);opacity:1;}}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+ 
+.battle-table{width:100%;border-collapse:collapse;animation:fadeSlideUp .8s ease-out both;font-size:.95rem;}
+.battle-table th{font-family:'Bebas Neue',cursive;font-size:1.1rem;letter-spacing:2px;background:rgba(205,64,85,.3);color:var(--gold);padding:.7rem 1rem;text-align:left;border-bottom:2px solid var(--blood);}
+.battle-table td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);color:var(--light);vertical-align:top;}
+.battle-table tr:nth-child(even) td{background:rgba(255,255,255,.03);}
+.battle-table tr:hover td{background:rgba(205,64,85,.1);transition:background .2s;}
+.battle-table td:first-child{font-weight:700;color:var(--teal);white-space:nowrap;}
+ 
+.countdown-digit{font-family:'Bebas Neue',cursive;font-size:8rem;color:var(--blood);text-align:center;text-shadow:0 0 60px rgba(205,64,85,1);animation:countPop .4s cubic-bezier(.175,.885,.32,1.275) both;}
+@keyframes countPop{from{transform:scale(2);opacity:0;}to{transform:scale(1);opacity:1;}}
+ 
+.flash-overlay{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;animation:flashOnce .3s ease-out;z-index:9999;}
+@keyframes flashOnce{0%{opacity:.8;}100%{opacity:0;}}
+ 
+.stButton>button[kind="secondary"]{background:transparent !important;border:2px solid var(--gold) !important;color:var(--gold) !important;font-family:'Bebas Neue',sans-serif !important;font-size:1.2rem !important;letter-spacing:3px !important;border-radius:8px !important;transition:all .25s !important;}
+.stButton>button[kind="secondary"]:hover{background:rgba(255,215,0,.1) !important;box-shadow:0 0 30px rgba(255,215,0,.4) !important;}
+ 
+.stSelectbox label{color:var(--gold) !important;font-family:'Bebas Neue',cursive !important;font-size:1.1rem !important;letter-spacing:2px !important;}
+.stSpinner>div{border-color:var(--blood) transparent transparent transparent !important;}
+ 
+header{background:transparent !important;}
