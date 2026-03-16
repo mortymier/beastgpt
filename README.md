@@ -10,6 +10,12 @@ This project is designed for **young learners (ages 6–12)** to make learning a
 
 ---
 
+# 🌐 Live App
+
+**🔗 [Open BeastGPT on Streamlit Cloud] https://beastgpt.streamlit.app/**
+
+---
+
 # 🎯 Project Goal
 
 The goal of BeastGPT is to help students learn about animals through a **comparative battle simulation**.
